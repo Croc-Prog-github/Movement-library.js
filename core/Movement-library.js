@@ -39,8 +39,8 @@ class Mover {
   }
 
   glideAt(x, y, seconds) {
-    this.element.style.transition = `all ${seconds}s`;
-    this.achieve.setXY(x, y);
+    this.element.style.transition = `left ${seconds}s, top ${seconds}s`; // Animazione su left e top
+    this.raggiungi.XY(x, y);
     setTimeout(() => {
       this.element.style.transition = ''; // Rimuove la transizione dopo che è completata
     }, seconds * 1000);
