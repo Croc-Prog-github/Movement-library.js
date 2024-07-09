@@ -1,7 +1,7 @@
 class Mover {
   constructor(element) {
     this.element = element;
-    this.element.style.position = 'absolute'; // Assicurati che l'elemento sia posizionato in modo assoluto
+    this.element.style.position = 'absolute'; // Imposta position: absolute
   }
     
   achieve = {
@@ -28,14 +28,14 @@ class Mover {
       this.achieve.setXY(x, y);
     },
 
-    mouse: () => {
+    /*mouse: () => {
       const moveToMouse = (event) => {
         const x = event.clientX;
         const y = event.clientY;
         this.achieve.setXY(x, y);
       };
       document.addEventListener('mousemove', moveToMouse, { once: true });
-    }
+    }*/
   }
 
   glideAt(x, y, seconds) {

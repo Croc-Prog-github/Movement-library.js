@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Raggiungi una posizione casuale
   //mover.achieve.randomXY();
 
-  //mover.achieve.setXY(15, 15)
+  mover.achieve.setXY(15, 15)
 
   // Raggiungi la posizione del puntatore del mouse al click
   /*document.addEventListener('click', (event) => {
@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });*/
 
   // Scivola in 1 secondo alla posizione (200, 200)
-  //mover.glideAt(200, 200, 2);
+  mover.glideAt(200, 200, 10);
 
   // Punta in direzione 45 gradi
   mover.punteInDirection(90);
@@ -25,5 +25,5 @@ document.addEventListener('DOMContentLoaded', () => {
   //mover.changeY(50);
 
   // Raggiungi la posizione del mouse quando viene chiamato
-  //mover.achieve.mouse();
+  //mover.achieve.mouse(); DEPRECATED
 });
