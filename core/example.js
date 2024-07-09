@@ -3,11 +3,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const mover = new Mover(element);
 
   // Raggiungi una posizione casuale
-  mover.raggiungi(Math.random() * window.innerWidth, Math.random() * window.innerHeight);
+  mover.raggiungi.XY(Math.random() * window.innerWidth, Math.random() * window.innerHeight);
 
   // Raggiungi la posizione del puntatore del mouse al click
   document.addEventListener('click', (event) => {
-    mover.raggiungiPuntatore(event);
+    mover.raggiungi.mouseFromEvent(event);
   });
 
   // Scivola in 1 secondo alla posizione (200, 200)

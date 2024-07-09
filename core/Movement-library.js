@@ -3,21 +3,37 @@ class Mover {
     this.element = element;
     this.element.style.position = 'absolute'; // Assicurati che l'elemento sia posizionato in modo assoluto
   }
+    
+  raggiungi = {
+    XY: (x, y) => {
+      this.element.style.left = `${x}px`;
+      this.element.style.top = `${y}px`;
+    },
 
-  raggiungi(x, y) {
-    this.element.style.left = `${x}px`;
-    this.element.style.top = `${y}px`;
-  }
+    idElement: (id) => {
+      const target = document.getElementById(id);
+      if (target) {
+        const rect = target.getBoundingClientRect();
+        this.raggiungi.XY(rect.left + window.scrollX, rect.top + window.scrollY);
+      }
+    },
 
-  raggiungiPuntatore(mouseEvent) {
-    const x = mouseEvent.clientX;
-    const y = mouseEvent.clientY;
-    this.raggiungi(x, y);
+    mouseFromEvent: (mouseEvent) => {
+      const x = mouseEvent.clientX;
+      const y = mouseEvent.clientY;
+      this.raggiungi.XY(x, y);
+    },
+
+    mouse: () => {
+      document.addEventListener('mousemove', (event) => {
+        this.raggiungi.mouseFromEvent(event);
+      });
+    }
   }
 
   scivolaIn(seconds, x, y) {
     this.element.style.transition = `all ${seconds}s`;
-    this.raggiungi(x, y);
+    this.raggiungi.XY(x, y);
     setTimeout(() => {
       this.element.style.transition = ''; // Rimuove la transizione dopo che è completata
     }, seconds * 1000);
@@ -29,11 +45,11 @@ class Mover {
 
   cambiaX(dx) {
     const currentX = parseInt(this.element.style.left) || 0;
-    this.raggiungi(currentX + dx, parseInt(this.element.style.top) || 0);
+    this.raggiungi.XY(currentX + dx, parseInt(this.element.style.top) || 0);
   }
 
   cambiaY(dy) {
     const currentY = parseInt(this.element.style.top) || 0;
-    this.raggiungi(parseInt(this.element.style.left) || 0, currentY + dy);
+    this.raggiungi.XY(parseInt(this.element.style.left) || 0, currentY + dy);
   }
 }
