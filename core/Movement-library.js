@@ -19,6 +19,8 @@ class Mover {
       if (target) {
         const rect = target.getBoundingClientRect();
         this.achieve.setXY(rect.left + window.scrollX, rect.top + window.scrollY);
+      } else {
+        console.error("")
       }
     },
 

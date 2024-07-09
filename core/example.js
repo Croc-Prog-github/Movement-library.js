@@ -25,5 +25,5 @@ document.addEventListener('DOMContentLoaded', () => {
   //mover.changeY(50);
 
   // Raggiungi la posizione del mouse quando viene chiamato
-  //mover.achieve.mouse(); DEPRECATED
+  //mover.achieve.mouse();
 });
