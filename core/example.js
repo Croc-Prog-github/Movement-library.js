@@ -2,22 +2,23 @@ const element = document.getElementById('movable');
 const mover = new Mover(element);
 
 // Raggiungi una posizione casuale
-//mover.achieve.randomXY();
+mover.achieve.randomXY();
 
-mover.achieve.setXY(0, 0)
+//mover.achieve.setXY(0, 0)
+//mover.achieve.idElement('movable2')
 
 // Raggiungi la posizione del puntatore del mouse al click
-/*document.addEventListener('click', (event) => {
+document.addEventListener('click', (event) => {
   mover.achieve.mouseFromEvent(event);
-});*/
+  mover.punteTowardsId('movable2')
+});
 
 // Scivola in 1 secondo alla posizione (200, 200)
-mover.glideAt(200, 200, 5);
+mover.glideAt(0, 0, 5);
 
 // Punta in direzione 45 gradi
-mover.punteInDirection(90);
+//mover.punteInDirection(90);
 
-//mover.achieve.idElement('movable2')
 
 // Cambia la posizione X di 50 pixel
 //mover.changeX(50);
