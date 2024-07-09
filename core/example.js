@@ -1,5 +1,5 @@
 const element = document.getElementById('movable');
-const mover = new Mover(element);
+const mover = new MoverJS(element);
 
 mover.achieve.randomXY();
 

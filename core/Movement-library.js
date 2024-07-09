@@ -1,4 +1,4 @@
-class Mover {
+class MoverJS {
   constructor(element) {
     this.element = element;
     this.element.style.position = 'absolute'; // Imposta position: absolute
