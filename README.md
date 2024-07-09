@@ -12,7 +12,7 @@ Una semplice libreria per JS che facilita la programmazione di movimenti e spost
   <!-- ![Downloads](https://img.shields.io/github/downloads/Croc-Prog-github/Movement-library.js/total) -->
   ![GitHub Repo stars](https://img.shields.io/github/stars/Croc-Prog-github/Movement-library.js?style=flat-square&color=yellow)
   ![GitHub repo size](https://img.shields.io/github/repo-size/Croc-Prog-github/Movement-library.js?style=flat-square)
-  ![Code quality](https://img.shields.io/badge/Code%20Quality-A-lighgreen?style=flat-square)
+  ![Code quality](https://img.shields.io/badge/Code%20Quality-B-chocolate?style=flat-square)
   ![Licenze](https://img.shields.io/badge/licenze-MIT-blue?style=flat-square&link=https%3A%2F%2Fgithub.com%2FCroc-Prog-github%2FMovement-library.js%2Fblob%2Fmain%2FLICENSE.md)
   <!-- ![Manteined](https://img.shields.io/badge/Aggiornamenti-SI!-green) -->
   <!-- ![Contributors](https://img.shields.io/github/contributors/Croc-Prog-github/Movement-library.js?style=flat-square) -->
