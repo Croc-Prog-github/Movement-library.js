@@ -4,7 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Movement-library.js</title>
-  <script src="/core/Movement-library.js">import mover from "https://raw.githubusercontent.com/Croc-Prog-github/Movement-library.js/main/core/Movement-library.js?token=GHSAT0AAAAAACKZZYCEPVZ52Y6BSKU472HWZUNME4A";</script>
+  <script type="module">
+    import mover from "https://raw.githubusercontent.com/Croc-Prog-github/Movement-library.js/main/core/Movement-library.js?token=GHSAT0AAAAAACKZZYCEPVZ52Y6BSKU472HWZUNME4A";
+  </script>
 </head>
 <body style="display: flex; flex-direction: column; background: #2b2b2b;">
   <hx style="color: white;font-size: larger;font-family: sans-serif;">
@@ -20,14 +22,14 @@ const mover = new MoverJS(element);
     
 mover.achieve.randomXY();
     
-mover.achieve.setXY(0, 0)
-mover.achieve.idElement('movable2')
+mover.achieve.setXY(0, 0);
+mover.achieve.idElement('movable2');
     
-mover.punteTowardsId('movable2')
+mover.punteTowardsId('movable2');
 mover.glideAtIdElement('movable2', 5);
     
 mover.glideAt(0, 0, 5);
-mover.glideAt(mover.getRandomX(), mover.getRandomY(), 5)
+mover.glideAt(mover.getRandomX(), mover.getRandomY(), 5);
     
 mover.punteInDirection(90);
     
@@ -59,7 +61,7 @@ mover.changeY(50);
   <script src="/core/Movement-library.js"></script>
   <script src="/core/example.js"></script>
 </body>
-</html>`
+</html>`;
 </script>
 
 <script>
@@ -74,11 +76,12 @@ mover.changeY(50);
   })
   .catch(error => {
     console.error('Error fetching example script:', error);
-  });*/  
+  });
+  */
 
   // Reindirizzare l'output console
   (function() {
-    var oldLog = console.log;
+    const oldLog = console.log;
     console.log = function(message) {
       document.getElementById('Out').value += message + '\n';
       oldLog.apply(console, arguments);
@@ -98,109 +101,103 @@ mover.changeY(50);
 
 <script>
   class MoverJS {
-  constructor(element) {
-    this.element = element;
-    this.element.style.position = 'relative'; // Imposta position: absolute
-  }
-    
-  achieve = {
-    setXY: (x, y) => {
-      this.element.style.left = (x+"px");
-      this.element.style.top = (y+"px") ;
-    },
+    // Rimosso 'private'
+    element;
 
-    randomXY: () => {
-      this.achieve.setXY(Math.random() * window.innerWidth, Math.random() * window.innerHeight);
-    },
+    constructor(element) {
+      this.element = element;
+      this.element.style.position = 'relative'; // Imposta position: relative
+    }
 
-    idElement: (id) => {
-      const target = document.getElementById(id);
-      if (target) {
-        const rect = target.getBoundingClientRect();
-        this.achieve.setXY(rect.left + window.scrollX, rect.top + window.scrollY);
-      } else {
-        console.error("The element with the id: " + id + " doesn't exist.");
-      }
-    },
+    achieve = {
+      setXY: (x, y) => {
+        this.element.style.left = `${x}px`;
+        this.element.style.top = `${y}px`;
+      },
 
-    mouseFromEvent: (mouseEvent) => {
-      const x = mouseEvent.clientX;
-      const y = mouseEvent.clientY;
-      this.achieve.setXY(x, y);
-    },
+      randomXY: () => {
+        this.achieve.setXY(Math.random() * window.innerWidth, Math.random() * window.innerHeight);
+      },
 
-    /*mouse: () => {
-      const moveToMouse = (event) => {
-        const x = event.clientX;
-        const y = event.clientY;
+      idElement: (id) => {
+        const target = document.getElementById(id);
+        if (target) {
+          const rect = target.getBoundingClientRect();
+          this.achieve.setXY(rect.left + window.scrollX, rect.top + window.scrollY);
+        } else {
+          console.error(`The element with the id: ${id} doesn't exist.`);
+        }
+      },
+
+      mouseFromEvent: (mouseEvent) => {
+        const x = mouseEvent.clientX;
+        const y = mouseEvent.clientY;
         this.achieve.setXY(x, y);
-      };
-      document.addEventListener('mousemove', moveToMouse, { once: true });
-    }*/
-  }
+      },
+    };
 
-  getRandomX() {
-    return (Math.random() * window.innerWidth)
-  }
+    getRandomX() {
+      return Math.random() * window.innerWidth;
+    }
 
-  getRandomY() {
-    return (Math.random() * window.innerHeight)
-  }
+    getRandomY() {
+      return Math.random() * window.innerHeight;
+    }
 
-  glideAt(x, y, seconds) {
-    this.element.style.transition = ("left "+ seconds+"s, top "+seconds+"s"); // Animazione su left e top
-    this.achieve.setXY(x, y);
-    setTimeout(() => {
-      this.element.style.transition = ''; // Rimuove la transizione dopo che è completata
-    }, seconds * 1000);
-  }
-
-  glideAtIdElement(id, seconds) {
-    const target = document.getElementById(id);
-    if (target) {
-      const rect = target.getBoundingClientRect();
-      const startX = parseInt(this.element.style.left) || 0;
-      const startY = parseInt(this.element.style.top) || 0;
-      const endX = rect.left + window.scrollX;
-      const endY = rect.top + window.scrollY;
-      const distanceX = endX - startX;
-      const distanceY = endY - startY;
-      this.element.style.transition = ("left "+ seconds+"s, top "+seconds+"s"); // Animazione su left e top
-      this.achieve.setXY(startX + distanceX, startY + distanceY);
+    glideAt(x, y, seconds) {
+      this.element.style.transition = `left ${seconds}s, top ${seconds}s`; // Animazione su left e top
+      this.achieve.setXY(x, y);
       setTimeout(() => {
         this.element.style.transition = ''; // Rimuove la transizione dopo che è completata
       }, seconds * 1000);
-    } else {
-      console.error("The element with the id: " + id + " doesn't exist.");
+    }
+
+    glideAtIdElement(id, seconds) {
+      const target = document.getElementById(id);
+      if (target) {
+        const rect = target.getBoundingClientRect();
+        const startX = parseInt(this.element.style.left) || 0;
+        const startY = parseInt(this.element.style.top) || 0;
+        const endX = rect.left + window.scrollX;
+        const endY = rect.top + window.scrollY;
+        const distanceX = endX - startX;
+        const distanceY = endY - startY;
+        this.element.style.transition = `left ${seconds}s, top ${seconds}s`; // Animazione su left e top
+        this.achieve.setXY(startX + distanceX, startY + distanceY);
+        setTimeout(() => {
+          this.element.style.transition = ''; // Rimuove la transizione dopo che è completata
+        }, seconds * 1000);
+      } else {
+        console.error(`The element with the id: ${id} doesn't exist.`);
+      }
+    }
+
+    punteInDirection(degrees) {
+      this.element.style.transform = `rotate(${degrees}deg)`;
+    }
+
+    punteTowardsId(targetId) {
+      const target = document.getElementById(targetId);
+      if (target) {
+        const rect = target.getBoundingClientRect();
+        const elementRect = this.element.getBoundingClientRect();
+        const deltaX = rect.left - elementRect.left;
+        const deltaY = rect.top - elementRect.top;
+        const angle = Math.atan2(deltaY, deltaX) * (180 / Math.PI);
+        this.punteInDirection(angle);
+      } else {
+        console.error(`The element with the id: ${targetId} doesn't exist.`);
+      }
+    }
+
+    changeX(dx) {
+      const currentX = parseInt(this.element.style.left) || 0;
+      this.achieve.setXY(currentX + dx, parseInt(this.element.style.top) || 0);
+    }
+
+    changeY(dy) {
+      const currentY = parseInt(this.element.style.top) || 0;
+      this.achieve.setXY(parseInt(this.element.style.left) || 0, currentY + dy);
     }
   }
-
-  punteInDirection(degrees) {
-    this.element.style.transform = ("rotate("+degrees+"deg)");
-  }
-
-  punteTowardsId(targetId) {
-    const target = document.getElementById(targetId);
-    if (target) {
-      const rect = target.getBoundingClientRect();
-      const elementRect = this.element.getBoundingClientRect();
-      const deltaX = rect.left - elementRect.left;
-      const deltaY = rect.top - elementRect.top;
-      const angle = Math.atan2(deltaY, deltaX) * (180 / Math.PI);
-      this.punteInDirection(angle);
-    } else {
-      console.error("The element with the id: " + targetId + " doesn't exist.");
-    }
-  }
-
-  changeX(dx) {
-    const currentX = parseInt(this.element.style.left) || 0;
-    this.achieve.setXY(currentX + dx, parseInt(this.element.style.top) || 0);
-  }
-
-  changeY(dy) {
-    const currentY = parseInt(this.element.style.top) || 0;
-    this.achieve.setXY(parseInt(this.element.style.left) || 0, currentY + dy);
-  }
-}
 </script>
