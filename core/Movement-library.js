@@ -25,9 +25,12 @@ class Mover {
     },
 
     mouse: () => {
-      document.addEventListener('mousemove', (event) => {
-        this.raggiungi.mouseFromEvent(event);
-      });
+      const moveToMouse = (event) => {
+        const x = event.clientX;
+        const y = event.clientY;
+        this.raggiungi.XY(x, y);
+      };
+      document.addEventListener('mousemove', moveToMouse, { once: true });
     }
   }
 

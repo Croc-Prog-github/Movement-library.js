@@ -6,9 +6,11 @@ document.addEventListener('DOMContentLoaded', () => {
   mover.raggiungi.XY(Math.random() * window.innerWidth, Math.random() * window.innerHeight);
 
   // Raggiungi la posizione del puntatore del mouse al click
-  document.addEventListener('click', (event) => {
+  /*document.addEventListener('click', (event) => {
     mover.raggiungi.mouseFromEvent(event);
-  });
+  });*/
+
+  mover.raggiungi.mouse();
 
   // Scivola in 1 secondo alla posizione (200, 200)
   mover.scivolaIn(1, 200, 200);
