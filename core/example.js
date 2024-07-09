@@ -6,7 +6,7 @@ mover.achieve.randomXY();
 //mover.achieve.setXY(0, 0)
 //mover.achieve.idElement('movable2')
 
-//mover.punteTowardsId('movable2')
+mover.punteTowardsId('movable2')
 //mover.glideAtIdElement('movable2', 5);
 
 //mover.glideAt(0, 0, 5);
