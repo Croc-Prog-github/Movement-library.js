@@ -48,6 +48,26 @@ class Mover {
     }, seconds * 1000);
   }
 
+  glideAtIdElement(id, seconds) {
+    const target = document.getElementById(id);
+    if (target) {
+      const rect = target.getBoundingClientRect();
+      const startX = parseInt(this.element.style.left) || 0;
+      const startY = parseInt(this.element.style.top) || 0;
+      const endX = rect.left + window.scrollX;
+      const endY = rect.top + window.scrollY;
+      const distanceX = endX - startX;
+      const distanceY = endY - startY;
+      this.element.style.transition = `left ${seconds}s, top ${seconds}s`; // Animazione su left e top
+      this.achieve.setXY(startX + distanceX, startY + distanceY);
+      setTimeout(() => {
+        this.element.style.transition = ''; // Rimuove la transizione dopo che è completata
+      }, seconds * 1000);
+    } else {
+      console.error("The element with the id: " + id + " doesn't exist.");
+    }
+  }
+
   punteInDirection(degrees) {
     this.element.style.transform = `rotate(${degrees}deg)`;
   }

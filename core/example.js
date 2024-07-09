@@ -8,10 +8,10 @@ mover.achieve.randomXY();
 //mover.achieve.idElement('movable2')
 
 // Raggiungi la posizione del puntatore del mouse al click
-document.addEventListener('click', (event) => {
-  mover.achieve.mouseFromEvent(event);
+//document.addEventListener('click', (event) => {
+  mover.glideAtIdElement('movable2', 5);
   mover.punteTowardsId('movable2')
-});
+//});
 
 // Scivola in 1 secondo alla posizione (200, 200)
 mover.glideAt(0, 0, 5);
