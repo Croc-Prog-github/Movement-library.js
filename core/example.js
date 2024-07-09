@@ -17,7 +17,7 @@ mover.glideAt(200, 200, 5);
 // Punta in direzione 45 gradi
 mover.punteInDirection(90);
 
-mover.achieve.idElement('movable2')
+//mover.achieve.idElement('movable2')
 
 // Cambia la posizione X di 50 pixel
 //mover.changeX(50);
