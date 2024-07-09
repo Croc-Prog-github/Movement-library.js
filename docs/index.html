@@ -47,21 +47,8 @@ mover.changeY(50);
 
 <script>
   document.getElementById('iframe').innerHTML = `
-  <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Movement-library.js</title>
-</head>
-<body>
-  <div id="movable" style="width: 50px; position: absolute; height: 50px; background-color: blue;"></div>
-  <div id="movable2" style="width: 50px; position: absolute; left: 0; top: 0; height: 50px; background-color: red;"></div>
-
-  <script src="/core/Movement-library.js"></script>
-  <script src="/core/example.js"></script>
-</body>
-</html>`;
+    <!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Movement-library.js</title></head><body><div id="movable" style="width: 50px; position: absolute; height: 50px; background-color: blue;"></div><div id="movable2" style="width: 50px; position: absolute; left: 0; top: 0; height: 50px; background-color: red;"></div><script src="/core/Movement-library.js"></script><script src="/core/example.js"></script></body></html>
+  `;
 </script>
 
 <script>
@@ -100,9 +87,9 @@ mover.changeY(50);
 </script>
 
 <script>
-  class MoverJS {
+  class MoverJS{
     // Rimosso 'private'
-    element;
+    //element;
 
     constructor(element) {
       this.element = element;
@@ -111,8 +98,8 @@ mover.changeY(50);
 
     achieve = {
       setXY: (x, y) => {
-        this.element.style.left = (x+"px");
-        this.element.style.top = (y+"px");
+        this.element.style.left = (x + "px");
+        this.element.style.top = (y + "px");
       },
 
       randomXY: () => {
@@ -168,12 +155,12 @@ mover.changeY(50);
           this.element.style.transition = ''; // Rimuove la transizione dopo che è completata
         }, seconds * 1000);
       } else {
-        console.error("The element with the id: "+id+" doesn't exist.");
+        console.error("The element with the id: "+ id +" doesn't exist.");
       }
     }
 
     punteInDirection(degrees) {
-      this.element.style.transform = "rotate("+degrees+"deg)";
+      this.element.style.rotate = (degrees + "deg");
     }
 
     punteTowardsId(id) {
@@ -186,7 +173,7 @@ mover.changeY(50);
         const angle = Math.atan2(deltaY, deltaX) * (180 / Math.PI);
         this.punteInDirection(angle);
       } else {
-        console.error("The element with the id: "+id+" doesn't exist.");
+        console.error("The element with the id: "+ id +" doesn't exist.");
       }
     }
 
