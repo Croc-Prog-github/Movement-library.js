@@ -111,8 +111,8 @@ mover.changeY(50);
 
     achieve = {
       setXY: (x, y) => {
-        this.element.style.left = `${x}px`;
-        this.element.style.top = `${y}px`;
+        this.element.style.left = (x+"px");
+        this.element.style.top = (y+"px");
       },
 
       randomXY: () => {
@@ -125,7 +125,7 @@ mover.changeY(50);
           const rect = target.getBoundingClientRect();
           this.achieve.setXY(rect.left + window.scrollX, rect.top + window.scrollY);
         } else {
-          console.error(`The element with the id: ${id} doesn't exist.`);
+          console.error("The element with the id: "+id+" doesn't exist.");
         }
       },
 
@@ -145,7 +145,7 @@ mover.changeY(50);
     }
 
     glideAt(x, y, seconds) {
-      this.element.style.transition = `left ${seconds}s, top ${seconds}s`; // Animazione su left e top
+      this.element.style.transition = ("left "+ seconds+"s, top "+seconds+"s"); // Animazione su left e top
       this.achieve.setXY(x, y);
       setTimeout(() => {
         this.element.style.transition = ''; // Rimuove la transizione dopo che è completata
@@ -162,22 +162,22 @@ mover.changeY(50);
         const endY = rect.top + window.scrollY;
         const distanceX = endX - startX;
         const distanceY = endY - startY;
-        this.element.style.transition = `left ${seconds}s, top ${seconds}s`; // Animazione su left e top
+        this.element.style.transition = ("left "+ seconds+"s, top "+seconds+"s"); // Animazione su left e top
         this.achieve.setXY(startX + distanceX, startY + distanceY);
         setTimeout(() => {
           this.element.style.transition = ''; // Rimuove la transizione dopo che è completata
         }, seconds * 1000);
       } else {
-        console.error(`The element with the id: ${id} doesn't exist.`);
+        console.error("The element with the id: "+id+" doesn't exist.");
       }
     }
 
     punteInDirection(degrees) {
-      this.element.style.transform = `rotate(${degrees}deg)`;
+      this.element.style.transform = "rotate("+degrees+"deg)";
     }
 
-    punteTowardsId(targetId) {
-      const target = document.getElementById(targetId);
+    punteTowardsId(id) {
+      const target = document.getElementById(id);
       if (target) {
         const rect = target.getBoundingClientRect();
         const elementRect = this.element.getBoundingClientRect();
@@ -186,7 +186,7 @@ mover.changeY(50);
         const angle = Math.atan2(deltaY, deltaX) * (180 / Math.PI);
         this.punteInDirection(angle);
       } else {
-        console.error(`The element with the id: ${targetId} doesn't exist.`);
+        console.error("The element with the id: "+id+" doesn't exist.");
       }
     }
 
