@@ -20,7 +20,7 @@ class Mover {
         const rect = target.getBoundingClientRect();
         this.achieve.setXY(rect.left + window.scrollX, rect.top + window.scrollY);
       } else {
-        console.error("")
+        console.error("The element with the id: " + target + " dosen't exist.")
       }
     },
 
@@ -52,7 +52,9 @@ class Mover {
     this.element.style.transform = `rotate(${degrees}deg)`;
   }
 
-  punteTowardsId() {}
+  punteTowardsId(TargetId) {
+    console.error("The element with the id: " + TargetId + " dosen't exist.")
+  }
 
   changeX(dx) {
     const currentX = parseInt(this.element.style.left) || 0;

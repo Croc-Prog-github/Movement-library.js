@@ -18,6 +18,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // Punta in direzione 45 gradi
   mover.punteInDirection(90);
 
+  mover.achieve.idElement('')
+
   // Cambia la posizione X di 50 pixel
   //mover.changeX(50);
 
