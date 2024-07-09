@@ -1,0 +1,65 @@
+class Mover {
+  constructor(element) {
+    this.element = element;
+    this.element.style.position = 'absolute'; // Assicurati che l'elemento sia posizionato in modo assoluto
+  }
+
+  raggiungi(x, y) {
+    this.element.style.left = `${x}px`;
+    this.element.style.top = `${y}px`;
+  }
+
+  raggiungiPuntatore(mouseEvent) {
+    const x = mouseEvent.clientX;
+    const y = mouseEvent.clientY;
+    this.raggiungi(x, y);
+  }
+
+  scivolaIn(seconds, x, y) {
+    this.element.style.transition = `all ${seconds}s`;
+    this.raggiungi(x, y);
+    setTimeout(() => {
+      this.element.style.transition = ''; // Rimuove la transizione dopo che è completata
+    }, seconds * 1000);
+  }
+
+  puntaInDirezione(degrees) {
+    this.element.style.transform = `rotate(${degrees}deg)`;
+  }
+
+  cambiaX(dx) {
+    const currentX = parseInt(this.element.style.left) || 0;
+    this.raggiungi(currentX + dx, parseInt(this.element.style.top) || 0);
+  }
+
+  cambiaY(dy) {
+    const currentY = parseInt(this.element.style.top) || 0;
+    this.raggiungi(parseInt(this.element.style.left) || 0, currentY + dy);
+  }
+}
+
+// Esempio di utilizzo della libreria
+document.addEventListener('DOMContentLoaded', () => {
+  const element = document.getElementById('movable');
+  const mover = new Mover(element);
+
+  // Raggiungi una posizione casuale
+  mover.raggiungi(Math.random() * window.innerWidth, Math.random() * window.innerHeight);
+
+  // Raggiungi la posizione del puntatore del mouse al click
+  document.addEventListener('click', (event) => {
+    mover.raggiungiPuntatore(event);
+  });
+
+  // Scivola in 1 secondo alla posizione (200, 200)
+  mover.scivolaIn(1, 200, 200);
+
+  // Punta in direzione 45 gradi
+  mover.puntaInDirezione(45);
+
+  // Cambia la posizione X di 50 pixel
+  mover.cambiaX(50);
+
+  // Cambia la posizione Y di 50 pixel
+  mover.cambiaY(50);
+});
