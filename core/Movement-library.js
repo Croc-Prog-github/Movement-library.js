@@ -42,7 +42,7 @@ class Mover {
 
   glideAt(x, y, seconds) {
     this.element.style.transition = `left ${seconds}s, top ${seconds}s`; // Animazione su left e top
-    this.raggiungi.XY(x, y);
+    this.raggiungi.setXY(x, y);
     setTimeout(() => {
       this.element.style.transition = ''; // Rimuove la transizione dopo che è completata
     }, seconds * 1000);
@@ -52,7 +52,7 @@ class Mover {
     this.element.style.transform = `rotate(${degrees}deg)`;
   }
 
-  punteTowardsId(TargetId) {
+  punteTowardsId(TargetId) { //Comment
     console.error("The element with the id: " + TargetId + " dosen't exist.")
   }
 
