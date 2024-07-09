@@ -46,7 +46,7 @@ class Mover {
     }, seconds * 1000);
   }
 
-  pointeInDirection(degrees) {
+  punteInDirection(degrees) {
     this.element.style.transform = `rotate(${degrees}deg)`;
   }
 

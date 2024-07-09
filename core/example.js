@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const mover = new Mover(element);
 
   // Raggiungi una posizione casuale
-  mover.raggiungi.randomXY();
+  mover.achieve.randomXY();
 
   // Raggiungi la posizione del puntatore del mouse al click
   /*document.addEventListener('click', (event) => {
@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
   //mover.scivolaIn(1, 200, 200);
 
   // Punta in direzione 45 gradi
-  mover.puntaInDirezione(90);
+  mover.punteInDirection(90);
 
   // Cambia la posizione X di 50 pixel
   //mover.cambiaX(50);
