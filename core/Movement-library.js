@@ -5,7 +5,7 @@ class Mover {
   }
     
   achieve = {
-    XY: (x, y) => {
+    setXY: (x, y) => {
       this.element.style.left = `${x}px`;
       this.element.style.top = `${y}px`;
     },

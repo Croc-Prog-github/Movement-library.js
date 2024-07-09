@@ -3,25 +3,25 @@ document.addEventListener('DOMContentLoaded', () => {
   const mover = new Mover(element);
 
   // Raggiungi una posizione casuale
-  mover.achieve.randomXY();
+  //mover.achieve.randomXY();
 
   // Raggiungi la posizione del puntatore del mouse al click
   /*document.addEventListener('click', (event) => {
-    mover.raggiungi.mouseFromEvent(event);
+    mover.achieve.mouseFromEvent(event);
   });*/
 
   // Scivola in 1 secondo alla posizione (200, 200)
-  //mover.scivolaIn(1, 200, 200);
+  mover.glideAt(1, mover.achieve.randomXY());
 
   // Punta in direzione 45 gradi
   mover.punteInDirection(90);
 
   // Cambia la posizione X di 50 pixel
-  //mover.cambiaX(50);
+  //mover.changeX(50);
 
   // Cambia la posizione Y di 50 pixel
-  //mover.cambiaY(50);
+  //mover.changeY(50);
 
   // Raggiungi la posizione del mouse quando viene chiamato
-  //mover.raggiungi.mouse();
+  //mover.achieve.mouse();
 });
