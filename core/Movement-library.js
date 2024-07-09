@@ -11,7 +11,7 @@ class Mover {
     },
 
     randomXY: () => {
-      this.achieve.setXY((Math.random() * window.innerWidth), (Math.random() * window.innerHeight));
+      this.achieve.setXY(Math.random() * window.innerWidth, Math.random() * window.innerHeight);
     },
 
     idElement: (id) => {
@@ -20,7 +20,7 @@ class Mover {
         const rect = target.getBoundingClientRect();
         this.achieve.setXY(rect.left + window.scrollX, rect.top + window.scrollY);
       } else {
-        console.error("The element with the id: " + target + " dosen't exist.")
+        console.error("The element with the id: " + id + " doesn't exist.");
       }
     },
 
@@ -42,7 +42,7 @@ class Mover {
 
   glideAt(x, y, seconds) {
     this.element.style.transition = `left ${seconds}s, top ${seconds}s`; // Animazione su left e top
-    this.raggiungi.setXY(x, y);
+    this.achieve.setXY(x, y);
     setTimeout(() => {
       this.element.style.transition = ''; // Rimuove la transizione dopo che è completata
     }, seconds * 1000);
@@ -52,8 +52,18 @@ class Mover {
     this.element.style.transform = `rotate(${degrees}deg)`;
   }
 
-  punteTowardsId(TargetId) { //Comment
-    console.error("The element with the id: " + TargetId + " dosen't exist.")
+  punteTowardsId(targetId) {
+    const target = document.getElementById(targetId);
+    if (target) {
+      const rect = target.getBoundingClientRect();
+      const elementRect = this.element.getBoundingClientRect();
+      const deltaX = rect.left - elementRect.left;
+      const deltaY = rect.top - elementRect.top;
+      const angle = Math.atan2(deltaY, deltaX) * (180 / Math.PI);
+      this.punteInDirection(angle);
+    } else {
+      console.error("The element with the id: " + targetId + " doesn't exist.");
+    }
   }
 
   changeX(dx) {
