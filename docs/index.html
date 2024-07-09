@@ -14,7 +14,7 @@
     </a>
   </hx>
   
-  <textarea name="Editor" id="Editor" oninput="Run()" autocomplete="off" style="height: 320px; resize: vertical; font-family: monospace;" spellcheck="false">
+  <textarea name="Editor" id="Editor" oninput="Run()" autocomplete="off" style="height: 275px; resize: vertical; font-family: monospace;" spellcheck="false">
 const element = document.getElementById('movable');
 const mover = new MoverJS(element);
     
@@ -32,10 +32,35 @@ mover.glideAt(mover.getRandomX(), mover.getRandomY(), 5)
 mover.punteInDirection(90);
     
 mover.changeX(50);
-mover.changeY(50);</textarea>
+mover.changeY(50);
+  </textarea>
+  <div hidden style="background-color: white;width: -webkit-fill-available;height: max-content;resize: vertical;overflow-clip-margin: content-box !important;overflow: clip !important;border-width: 2px;border-style: inset;border-color: initial;border-image: initial;">
+    <div id="movable" style="width: 50px; position: relative; height: 50px; background-color: blue;"></div>
+    <div id="movable2" style="width: 50px; position: relative; left: 0; top: 0; height: 50px; background-color: red;"></div>
+  </div>
+  <iframe src="" id="iframe" frameborder="1"></iframe>
   <textarea name="Output" id="Out" rows="7" disabled style="resize: none;">Edit the example for run it: add an Enter or a Space.</textarea>
 </body>
 </html>
+
+<script>
+  document.getElementById('iframe').innerHTML = `
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Movement-library.js</title>
+</head>
+<body>
+  <div id="movable" style="width: 50px; position: absolute; height: 50px; background-color: blue;"></div>
+  <div id="movable2" style="width: 50px; position: absolute; left: 0; top: 0; height: 50px; background-color: red;"></div>
+
+  <script src="/core/Movement-library.js"></script>
+  <script src="/core/example.js"></script>
+</body>
+</html>`
+</script>
 
 <script>
   // Correggere il fetch e ottenere il contenuto del file senza commenti sourceMappingURL
@@ -75,13 +100,13 @@ mover.changeY(50);</textarea>
   class MoverJS {
   constructor(element) {
     this.element = element;
-    this.element.style.position = 'absolute'; // Imposta position: absolute
+    this.element.style.position = 'relative'; // Imposta position: absolute
   }
     
   achieve = {
     setXY: (x, y) => {
-      this.element.style.left = `${x}px`;
-      this.element.style.top = `${y}px`;
+      this.element.style.left = (x+"px");
+      this.element.style.top = (y+"px") ;
     },
 
     randomXY: () => {
@@ -123,7 +148,7 @@ mover.changeY(50);</textarea>
   }
 
   glideAt(x, y, seconds) {
-    this.element.style.transition = `left ${seconds}s, top ${seconds}s`; // Animazione su left e top
+    this.element.style.transition = ("left "+ seconds+"s, top "+seconds+"s"); // Animazione su left e top
     this.achieve.setXY(x, y);
     setTimeout(() => {
       this.element.style.transition = ''; // Rimuove la transizione dopo che è completata
@@ -140,7 +165,7 @@ mover.changeY(50);</textarea>
       const endY = rect.top + window.scrollY;
       const distanceX = endX - startX;
       const distanceY = endY - startY;
-      this.element.style.transition = `left ${seconds}s, top ${seconds}s`; // Animazione su left e top
+      this.element.style.transition = ("left "+ seconds+"s, top "+seconds+"s"); // Animazione su left e top
       this.achieve.setXY(startX + distanceX, startY + distanceY);
       setTimeout(() => {
         this.element.style.transition = ''; // Rimuove la transizione dopo che è completata
@@ -151,7 +176,7 @@ mover.changeY(50);</textarea>
   }
 
   punteInDirection(degrees) {
-    this.element.style.transform = `rotate(${degrees}deg)`;
+    this.element.style.transform = ("rotate("+degrees+"deg)");
   }
 
   punteTowardsId(targetId) {
