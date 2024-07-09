@@ -10,6 +10,10 @@ class Mover {
       this.element.style.top = `${y}px`;
     },
 
+    randomXY: () => {
+      this.raggiungi.XY((Math.random() * window.innerWidth), (Math.random() * window.innerHeight));
+    },
+
     idElement: (id) => {
       const target = document.getElementById(id);
       if (target) {
