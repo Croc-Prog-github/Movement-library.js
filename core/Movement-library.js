@@ -40,6 +40,14 @@ class Mover {
     }*/
   }
 
+  getRandomX() {
+    return (Math.random() * window.innerWidth)
+  }
+
+  getRandomY() {
+    return (Math.random() * window.innerHeight)
+  }
+
   glideAt(x, y, seconds) {
     this.element.style.transition = `left ${seconds}s, top ${seconds}s`; // Animazione su left e top
     this.achieve.setXY(x, y);
