@@ -11,28 +11,28 @@ class Mover {
     },
 
     randomXY: () => {
-      this.achieve.XY((Math.random() * window.innerWidth), (Math.random() * window.innerHeight));
+      this.achieve.setXY((Math.random() * window.innerWidth), (Math.random() * window.innerHeight));
     },
 
     idElement: (id) => {
       const target = document.getElementById(id);
       if (target) {
         const rect = target.getBoundingClientRect();
-        this.achieve.XY(rect.left + window.scrollX, rect.top + window.scrollY);
+        this.achieve.setXY(rect.left + window.scrollX, rect.top + window.scrollY);
       }
     },
 
     mouseFromEvent: (mouseEvent) => {
       const x = mouseEvent.clientX;
       const y = mouseEvent.clientY;
-      this.achieve.XY(x, y);
+      this.achieve.setXY(x, y);
     },
 
     mouse: () => {
       const moveToMouse = (event) => {
         const x = event.clientX;
         const y = event.clientY;
-        this.achieve.XY(x, y);
+        this.achieve.setXY(x, y);
       };
       document.addEventListener('mousemove', moveToMouse, { once: true });
     }
@@ -40,7 +40,7 @@ class Mover {
 
   glideAt(x, y, seconds) {
     this.element.style.transition = `all ${seconds}s`;
-    this.achieve.XY(x, y);
+    this.achieve.setXY(x, y);
     setTimeout(() => {
       this.element.style.transition = ''; // Rimuove la transizione dopo che è completata
     }, seconds * 1000);
@@ -50,13 +50,15 @@ class Mover {
     this.element.style.transform = `rotate(${degrees}deg)`;
   }
 
+  punteTowardsId() {}
+
   changeX(dx) {
     const currentX = parseInt(this.element.style.left) || 0;
-    this.achieve.XY(currentX + dx, parseInt(this.element.style.top) || 0);
+    this.achieve.setXY(currentX + dx, parseInt(this.element.style.top) || 0);
   }
 
   changeY(dy) {
     const currentY = parseInt(this.element.style.top) || 0;
-    this.achieve.XY(parseInt(this.element.style.left) || 0, currentY + dy);
+    this.achieve.setXY(parseInt(this.element.style.left) || 0, currentY + dy);
   }
 }
