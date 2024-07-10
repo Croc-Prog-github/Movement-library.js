@@ -22,7 +22,7 @@ class MoverTS {
         const rect = target.getBoundingClientRect();
         this.achieve.setXY(rect.left + window.scrollX, rect.top + window.scrollY);
       } else {
-        console.error(`The element with the id: ${id} doesn't exist.`);
+        console.error("The element with the id: " + id + " doesn't exist.");
       }
     },
 
@@ -32,24 +32,22 @@ class MoverTS {
       this.achieve.setXY(x, y);
     },
 
-    /*
-    mouse: (): void => {
-      const moveToMouse = (event: MouseEvent) => {
+    /*mouse: (): void => {
+      const moveToMouse = (event: MouseEvent): void => {
         const x = event.clientX;
         const y = event.clientY;
         this.achieve.setXY(x, y);
       };
       document.addEventListener('mousemove', moveToMouse, { once: true });
-    }
-    */
+    }*/
   }
 
   getRandomX(): number {
-    return Math.random() * window.innerWidth;
+    return (Math.random() * window.innerWidth)
   }
 
   getRandomY(): number {
-    return Math.random() * window.innerHeight;
+    return (Math.random() * window.innerHeight)
   }
 
   glideAt(x: number, y: number, seconds: number): void {
@@ -76,7 +74,7 @@ class MoverTS {
         this.element.style.transition = ''; // Rimuove la transizione dopo che è completata
       }, seconds * 1000);
     } else {
-      console.error(`The element with the id: ${id} doesn't exist.`);
+      console.error("The element with the id: " + id + " doesn't exist.");
     }
   }
 
@@ -94,7 +92,7 @@ class MoverTS {
       const angle = Math.atan2(deltaY, deltaX) * (180 / Math.PI);
       this.punteInDirection(angle);
     } else {
-      console.error(`The element with the id: ${targetId} doesn't exist.`);
+      console.error("The element with the id: " + targetId + " doesn't exist.");
     }
   }
 
