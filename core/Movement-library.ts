@@ -1,5 +1,5 @@
 class MoverTS {
-  private element: HTMLElement;
+  public element: HTMLElement;
 
   constructor(element: HTMLElement) {
     this.element = element;
