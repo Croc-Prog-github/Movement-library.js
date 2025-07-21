@@ -3,9 +3,9 @@
   Under the MIT License
 */
 class MoverJS {
-  constructor(element) {
+  constructor(element, position) {
     this.element = element;
-    this.element.style.position = 'absolute'; // Imposta position: absolute
+    this.element.style.position = position; // Imposta position: absolute
   }
     
   achieve = {

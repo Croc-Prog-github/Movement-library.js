@@ -18,7 +18,7 @@
   
   <textarea name="Editor" id="Editor" oninput="Run()" autocomplete="off" style="height: 275px; resize: vertical; font-family: monospace;" spellcheck="false">
 const element = document.getElementById('movable');
-const mover = new MoverJS(element);
+const mover = new MoverJS(element, "absolute");
     
 mover.achieve.randomXY();
     

@@ -4,10 +4,11 @@
 */
 class MoverTS {
   public element: HTMLElement;
+  public position: string;
 
-  constructor(element: HTMLElement) {
+  constructor(element: HTMLElement, position: string) {
     this.element = element;
-    this.element.style.position = 'absolute'; // Imposta position: absolute
+    this.element.style.position = position; // Imposta position: absolute
   }
 
   achieve = {
