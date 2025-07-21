@@ -1,3 +1,7 @@
+/*
+  This file is part of the Movement-library.js library by Croc-Prog-github, available at: https://github.com/Croc-Prog-github/Movement-library.js
+  Under the MIT License
+*/
 class MoverJS {
   constructor(element) {
     this.element = element;
