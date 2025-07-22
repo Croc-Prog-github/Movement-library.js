@@ -35,7 +35,7 @@ mover.punteInDirection(90);
     
 mover.changeX(50);
 mover.changeY(50);
-  </textarea>
+</textarea>
   <div hidden style="background-color: white;width: -webkit-fill-available;height: max-content;resize: vertical;overflow-clip-margin: content-box !important;overflow: clip !important;border-width: 2px;border-style: inset;border-color: initial;border-image: initial;">
     <div id="movable" style="width: 50px; position: relative; height: 50px; background-color: blue;"></div>
     <div id="movable2" style="width: 50px; position: relative; left: 0; top: 0; height: 50px; background-color: red;"></div>
@@ -46,9 +46,25 @@ mover.changeY(50);
 </html>
 
 <script>
-  document.getElementById('iframe').innerHTML = `
-    <!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Movement-library.js</title></head><body><div id="movable" style="width: 50px; position: absolute; height: 50px; background-color: blue;"></div><div id="movable2" style="width: 50px; position: absolute; left: 0; top: 0; height: 50px; background-color: red;"></div><script src="/core/Movement-library.js"></script><script src="/core/example.js"></script></body></html>
-  `;
+  const iframe = document.getElementById('iframe');
+  iframe.contentDocument.open();
+  iframe.contentDocument.write(`
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Movement-library.js</title>
+      </head>
+      <body>
+        <div id="movable" style="width: 50px; position: absolute; height: 50px; background-color: blue;"></div>
+        <div id="movable2" style="width: 50px; position: absolute; left: 0; top: 0; height: 50px; background-color: red;"></div>
+        <script src="/core/Movement-library.js"></script>
+        <script src="/core/example.js"></script>
+      </body>
+    </html>
+  `);
+  iframe.contentDocument.close();
 </script>
 
 <script>
