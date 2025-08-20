@@ -76,7 +76,7 @@ Sposta l’elemento verso la posizione di un altro elemento HTML (selezionato tr
 
 **`mover.punteInDirection(degrees)`**
 Ruota l’elemento di un certo numero di gradi.
-* **degrees**: L’angolo di rotazione in gradi (0° = verso destra, 90° = verso il basso).<br>
+* **degrees**: il numero dell’angolo di rotazione in gradi (0 = verso destra, 90 = verso il basso).<br>
 
 **`mover.punteTowardsId(targetId)`**
 Ruota l’elemento in direzione di un altro elemento specificato tramite `id`.
