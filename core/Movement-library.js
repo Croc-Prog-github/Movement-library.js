@@ -5,7 +5,7 @@
 class MoverJS {
   constructor(element, position) {
     this.element = element;
-    this.element.style.position = position; // Imposta position: absolute
+    this.element.style.position = position;
   }
     
   achieve = {
