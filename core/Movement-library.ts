@@ -83,6 +83,40 @@ class MoverTS {
     }
   }
 
+  glideAtAndWait(x: number, y: number, seconds: number): void {
+    this.element.style.transition = `left ${seconds}s, top ${seconds}s`; // Animazione su left e top
+    this.achieve.setXY(x, y);
+    return new Promise(resolve => { //Aspetta il completamento della animazione
+      setTimeout(() => {
+      this.element.style.transition = ''; // Rimuove la transizione dopo che è completata
+      resolve();
+      }, seconds * 1000);
+    });
+  }
+
+  glideAtIdElementAndWait(id: string, seconds: number): void {
+    const target = document.getElementById(id);
+    if (target) {
+      const rect = target.getBoundingClientRect();
+      const startX = parseInt(this.element.style.left) || 0;
+      const startY = parseInt(this.element.style.top) || 0;
+      const endX = rect.left + window.scrollX;
+      const endY = rect.top + window.scrollY;
+      const distanceX = endX - startX;
+      const distanceY = endY - startY;
+      this.element.style.transition = `left ${seconds}s, top ${seconds}s`; // Animazione su left e top
+      this.achieve.setXY(startX + distanceX, startY + distanceY);
+      return new Promise(resolve => { //Aspetta il completamento della animazione
+        setTimeout(() => {
+          this.element.style.transition = ''; // Rimuove la transizione dopo che è completata
+          resolve();
+        }, seconds * 1000);
+      });
+    } else {
+      console.error("The element with the id: " + id + " doesn't exist.");
+    }
+  }
+
   punteInDirection(degrees: number): void {
     this.element.style.transform = `rotate(${degrees}deg)`;
   }

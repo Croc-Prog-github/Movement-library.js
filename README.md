@@ -70,7 +70,18 @@ Sposta l’elemento verso una posizione specifica (`x`, `y`) in un tempo determi
 * **seconds**: Tempo dell’animazione in secondi.<br>
 
 **`mover.glideAtIdElement(id, seconds)`**
-Sposta l’elemento verso la posizione di un altro elemento HTML (selezionato tramite `id`) in un tempo determinato.
+Sposta l’elemento verso la posizione di un altro elemento HTML (selezionato tramite `id`) in un tempo determinato, con animazione fluida.
+* **id**: L’id dell’elemento di riferimento.
+* **seconds**: Tempo dell’animazione in secondi.<br>
+
+**`mover.glideAtAndWait(x, y, seconds)`**
+Sposta l’elemento verso una posizione specifica (`x`, `y`) in un tempo determinato e attendi la fine dell'animazione prima di eseguire altro.
+* **x**: Coordinata finale sull’asse X.
+* **y**: Coordinata finale sull’asse Y.
+* **seconds**: Tempo dell’animazione in secondi.<br>
+
+**`mover.glideAtIdElementAndWait(id, seconds)`**
+Sposta l’elemento verso la posizione di un altro elemento HTML (selezionato tramite `id`) in un tempo determinato, e attendi la fine dell'animazione prima di eseguire altro.
 * **id**: L’id dell’elemento di riferimento.
 * **seconds**: Tempo dell’animazione in secondi.<br>
 
