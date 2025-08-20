@@ -3,7 +3,7 @@ Una semplice libreria per JS che facilita la programmazione di movimenti e spost
 
 <div align="center">
 
-  ![State](https://img.shields.io/badge/State%3A-Making-white?style=flat-square)
+  ![State](https://img.shields.io/badge/State%3A-Finished-lighgreen?style=flat-square)
   <!-- [![CodeQL](https://github.com/Croc-Prog-github/Movement-library.js/actions/workflows/github-code-scanning/codeql/badge.svg?style=flat-square&branch=main)](https://github.com/Croc-Prog-github/Movement-library.js/actions/workflows/github-code-scanning/codeql) -->
 </div>
 <hr>
